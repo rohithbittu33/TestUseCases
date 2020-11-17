@@ -8,6 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
+                sh 'sbt clean complile'
             }
         }
 
@@ -15,13 +16,15 @@ pipeline {
 
             steps {
                 echo 'testing the application...'
+                sh 'sbt test'
             }
         }
 
-        stage("deploy") {
+        stage("packaging") {
 
             steps {
-                echo 'deploying the application...'
+                echo 'packaging the application...'
+                sh 'sbt package'
             }
         }
     }
