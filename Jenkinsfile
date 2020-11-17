@@ -1,31 +1,31 @@
-pipeline {
+/* uses sbt, which i installed with homebrew. */
+/* this works without requiring the 'sbt plugin'. */
 
+pipeline {
     agent any
 
     stages {
 
-        stage("build") {
-
+        stage('Compile') {
             steps {
-                echo 'building the application...'
-                sh 'sbt clean complile'
+                echo "Compiling..."
+                sh "/usr/local/bin/sbt compile"
             }
         }
 
-        stage("test") {
-
+        stage('Test') {
             steps {
-                echo 'testing the application...'
-                sh 'sbt test'
+                echo "Testing..."
+                sh "/usr/local/bin/sbt test"
             }
         }
 
-        stage("packaging") {
-
+        stage('Package') {
             steps {
-                echo 'packaging the application...'
-                sh 'sbt package'
+                echo "Packaging..."
+                sh "/usr/local/bin/sbt package"
             }
         }
+
     }
 }
