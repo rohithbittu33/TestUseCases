@@ -1,31 +1,31 @@
-/* uses sbt, which i installed with homebrew. */
-/* this works without requiring the 'sbt plugin'. */
-
 pipeline {
+
     agent any
 
     stages {
 
-        stage('Compile') {
+        stage("build") {
+
             steps {
-                echo "Compiling..."
-                sh "/usr/local/bin/sbt compile"
+                echo 'building the application...'
+                sh 'sbt complile'
             }
         }
 
-        stage('Test') {
+        stage("test") {
+
             steps {
-                echo "Testing..."
-                sh "/usr/local/bin/sbt test"
+                echo 'testing the application...'
+                sh 'sbt test'
             }
         }
 
-        stage('Package') {
+        stage("packaging") {
+
             steps {
-                echo "Packaging..."
-                sh "/usr/local/bin/sbt package"
+                echo 'packaging the application...'
+                sh 'sbt package'
             }
         }
-
     }
 }
