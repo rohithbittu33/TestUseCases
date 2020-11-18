@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
-                sh '/usr/bin/sbt complile'
+                sh 'sbt complile'
             }
         }
 
@@ -16,7 +16,7 @@ pipeline {
 
             steps {
                 echo 'testing the application...'
-                // sh 'sbt test'
+                // sh '/usr/bin/sbt test'
             }
         }
 
