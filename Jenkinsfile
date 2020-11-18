@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
-                sh 'sbt complile'
+                sh 'sbt compile'
             }
         }
 
